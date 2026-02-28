@@ -1001,6 +1001,101 @@
             transform: translateY(0);
         }
 
+        /* ===== BEFORE / AFTER SLIDER ===== */
+        .ba-section {
+            padding: 80px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .ba-slider {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 7;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            cursor: col-resize;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .ba-slider img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .ba-slider .ba-after {
+            clip-path: inset(0 0 0 50%);
+        }
+
+        .ba-divider {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 3px;
+            height: 100%;
+            background: var(--accent-green);
+            transform: translateX(-50%);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .ba-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 44px;
+            height: 44px;
+            background: var(--accent-green);
+            border: 3px solid #fff;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 11;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+        }
+
+        .ba-handle svg {
+            width: 22px;
+            height: 22px;
+            fill: #fff;
+        }
+
+        .ba-label {
+            position: absolute;
+            top: 16px;
+            z-index: 5;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #fff;
+            pointer-events: none;
+        }
+
+        .ba-label-before { left: 16px; }
+        .ba-label-after { right: 16px; }
+
+        @media (max-width: 640px) {
+            .ba-slider { aspect-ratio: 4 / 3; }
+            .ba-handle { width: 36px; height: 36px; }
+            .ba-handle svg { width: 18px; height: 18px; }
+        }
+
         /* ===== BODY NO SCROLL ===== */
         body.no-scroll {
             overflow: hidden;
@@ -1015,7 +1110,7 @@
     <!-- ===== HEADER ===== -->
     <header class="header" id="header">
         <a href="#" class="header-logo">Detrás de <span>Cámara</span></a>
-        <a href="#oferta" class="header-cta">EMPEZAR AHORA</a>
+        <a href="#oferta" class="header-cta">UNIRME A LA COMUNIDAD</a>
     </header>
 
     <!-- ===== HERO ===== -->
@@ -1041,12 +1136,12 @@
                 </div>
             </div>
 
-            <p class="hero-price">Accede a la formación completa por</p>
-            <div class="hero-price-value"><span>1.999</span>€</div>
+            <p class="hero-price">Webinar gratuito el <strong>22 de marzo</strong> con Abel</p>
+            <div class="hero-price-value" style="font-size:clamp(28px,5vw,48px);">22 de marzo</div>
 
-            <a href="#oferta" class="hero-cta">QUIERO EMPEZAR A VIVIR DEL FILMMAKING</a>
+            <a href="#oferta" class="hero-cta">ENTRAR A LA COMUNIDAD</a>
 
-            <p class="hero-disclaimer">Pago único o fraccionado. 4 meses de formación + 1 año de comunidad. La formación se paga sola con tu primer cliente.</p>
+            <p class="hero-disclaimer">Entra al grupo de WhatsApp, accede al webinar gratuito con Abel y descubre cómo vivir del filmmaking.</p>
 
             <div class="hero-social-proof">
                 <p>
@@ -1095,6 +1190,24 @@
                 <h3>Acompañamiento</h3>
                 <p>Comunidad activa, directos semanales, invitados de alto valor, <span class="highlight">bolsa de trabajo real y eventos prácticos</span> para construir portfolio profesional.</p>
                 <div class="process-card-arrow">&nearr;</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BEFORE / AFTER ===== -->
+    <section class="ba-section fade-in">
+        <p class="section-label">Evolución</p>
+        <h2 class="section-title">Antes y después</h2>
+        <p class="section-subtitle">Desliza para ver la transformación. Esto es lo que cambia cuando dominas la técnica y el negocio.</p>
+
+        <div class="ba-slider" id="baSlider">
+            <img src="SILVESTRE/DSC00354.jpg" alt="Antes" class="ba-before">
+            <img src="SILVESTRE/DSC01388-2.jpg" alt="Después" class="ba-after">
+            <span class="ba-label ba-label-before">Antes</span>
+            <span class="ba-label ba-label-after">Después</span>
+            <div class="ba-divider" id="baDivider"></div>
+            <div class="ba-handle" id="baHandle">
+                <svg viewBox="0 0 24 24"><path d="M8 5l-5 7 5 7M16 5l5 7-5 7"/></svg>
             </div>
         </div>
     </section>
@@ -1177,7 +1290,7 @@
                         <li>Viaja por trabajo a Dubai, festivales y eventos exclusivos</li>
                     </ul>
 
-                    <a href="#oferta" class="bio-modal-cta" onclick="document.getElementById('bioModal').classList.remove('active');document.body.classList.remove('no-scroll');">QUIERO APRENDER CON ABEL</a>
+                    <a href="#oferta" class="bio-modal-cta" onclick="document.getElementById('bioModal').classList.remove('active');document.body.classList.remove('no-scroll');">ENTRAR A LA COMUNIDAD</a>
                 </div>
             </div>
         </div>
@@ -1230,13 +1343,13 @@
 
             <!-- Right -->
             <div class="offer-right">
-                <p class="offer-price-old">Valorado en 4.997€</p>
-                <div class="offer-price-new"><span>1.999</span>€</div>
-                <p class="offer-price-desc">Pago único o fraccionado &middot; 4 meses de formación + certificación + 1 año de comunidad + bolsa de trabajo</p>
-                <a href="#" class="offer-cta">ACCEDER AHORA</a>
+                <p class="offer-price-old">Webinar gratuito</p>
+                <div class="offer-price-new" style="font-size:clamp(28px,5vw,48px);">22 de marzo</div>
+                <p class="offer-price-desc">Entra a la comunidad de WhatsApp y accede al webinar en directo con Abel. Sin compromiso, 100% gratuito.</p>
+                <a href="#" class="offer-cta">ENTRAR A LA COMUNIDAD</a>
                 <div class="offer-secure">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                    Pago seguro &middot; Pago fraccionado disponible
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Grupo de WhatsApp &middot; Plazas limitadas
                 </div>
             </div>
         </div>
@@ -1269,12 +1382,12 @@
 
         <div class="faq-item">
             <button class="faq-question">
-                <span>No tengo dinero para invertir ahora mismo</span>
+                <span>¿Es gratis entrar a la comunidad?</span>
                 <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
                 <div class="faq-answer-inner">
-                    Pago fraccionado disponible. Con un solo cliente ya estás amortizando la formación. Alumnos reales han recuperado la inversión en las primeras 4 semanas. Si no inviertes ahora en ti, nadie lo va a hacer por ti.
+                    Sí. Entrar al grupo de WhatsApp y asistir al webinar del 22 de marzo con Abel es 100% gratuito. Es la mejor forma de conocer el método antes de tomar cualquier decisión.
                 </div>
             </div>
         </div>
@@ -1448,6 +1561,32 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Before / After slider
+        (() => {
+            const slider = document.getElementById('baSlider');
+            const afterImg = slider.querySelector('.ba-after');
+            const divider = document.getElementById('baDivider');
+            const handle = document.getElementById('baHandle');
+            let dragging = false;
+
+            function setPosition(x) {
+                const rect = slider.getBoundingClientRect();
+                let pct = ((x - rect.left) / rect.width) * 100;
+                pct = Math.max(0, Math.min(100, pct));
+                afterImg.style.clipPath = 'inset(0 0 0 ' + pct + '%)';
+                divider.style.left = pct + '%';
+                handle.style.left = pct + '%';
+            }
+
+            slider.addEventListener('mousedown', (e) => { dragging = true; setPosition(e.clientX); });
+            window.addEventListener('mousemove', (e) => { if (dragging) setPosition(e.clientX); });
+            window.addEventListener('mouseup', () => { dragging = false; });
+
+            slider.addEventListener('touchstart', (e) => { dragging = true; setPosition(e.touches[0].clientX); }, { passive: true });
+            window.addEventListener('touchmove', (e) => { if (dragging) setPosition(e.touches[0].clientX); }, { passive: true });
+            window.addEventListener('touchend', () => { dragging = false; });
+        })();
     </script>
 </body>
 </html>
