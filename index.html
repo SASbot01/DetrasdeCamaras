@@ -1096,6 +1096,127 @@
             .ba-handle svg { width: 18px; height: 18px; }
         }
 
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials {
+            padding: 80px 0 60px;
+            overflow: hidden;
+        }
+
+        .testimonials .section-label,
+        .testimonials .section-title {
+            padding: 0 24px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .testimonials-track-wrapper {
+            position: relative;
+            margin-top: 48px;
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(to right, transparent, black 80px, black calc(100% - 80px), transparent);
+            mask-image: linear-gradient(to right, transparent, black 80px, black calc(100% - 80px), transparent);
+        }
+
+        .testimonials-track {
+            display: flex;
+            gap: 24px;
+            padding: 0 60px;
+            width: max-content;
+            animation: testimonials-scroll 30s linear infinite;
+        }
+
+        .testimonials-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes testimonials-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .testimonial-card {
+            flex-shrink: 0;
+            width: 380px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(34, 197, 94, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border-color);
+        }
+
+        .testimonial-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-name {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--text-main);
+        }
+
+        .testimonial-handle {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--accent-green);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .testimonial-handle:hover {
+            opacity: 0.8;
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .testimonial-text strong {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        @media (max-width: 640px) {
+            .testimonial-card {
+                width: 300px;
+                padding: 22px;
+            }
+            .testimonials {
+                padding: 60px 0 40px;
+            }
+            .testimonials-track {
+                padding: 0 40px;
+            }
+            .testimonials-track-wrapper {
+                -webkit-mask-image: linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent);
+                mask-image: linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent);
+            }
+        }
+
         /* ===== BODY NO SCROLL ===== */
         body.no-scroll {
             overflow: hidden;
@@ -1149,6 +1270,86 @@
                     <strong>El 87% de las empresas utilizan vídeo como herramienta de marketing.</strong>
                     El problema nunca fue la falta de oportunidades. El problema es que <strong>nadie te enseña a cobrar por tu trabajo</strong>.
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIOS ===== -->
+    <section class="testimonials fade-in">
+        <p class="section-label">La comunidad habla</p>
+        <h2 class="section-title">Resultados reales de alumnos reales</h2>
+
+        <div class="testimonials-track-wrapper">
+            <div class="testimonials-track" id="testimonialsTrack">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://unavatar.io/instagram/victordlx_" alt="victordlx_" class="testimonial-avatar" loading="lazy">
+                        <div class="testimonial-info">
+                            <span class="testimonial-name">Víctor</span>
+                            <a href="https://instagram.com/victordlx_" target="_blank" rel="noopener" class="testimonial-handle">@victordlx_</a>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">Gracias x todo como siempre Abel!! Esta semanita cerrados <strong>2 presupuestos para eventos top</strong> y mejor pagados gracias a la clase del otro día. Vamosss a por más familia</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://unavatar.io/instagram/raul.contentmedia" alt="raul.contentmedia" class="testimonial-avatar" loading="lazy">
+                        <div class="testimonial-info">
+                            <span class="testimonial-name">Raúl</span>
+                            <a href="https://instagram.com/raul.contentmedia" target="_blank" rel="noopener" class="testimonial-handle">@raul.contentmedia</a>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">Por cierto, <strong>cliente cerrado por 4 vídeos y 10 fotos</strong> en Madrid en el complejo de apartamentos que estoy viviendo por <strong>500€</strong></p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://unavatar.io/instagram/supercarwithraul" alt="supercarwithraul" class="testimonial-avatar" loading="lazy">
+                        <div class="testimonial-info">
+                            <span class="testimonial-name">Raúl</span>
+                            <a href="https://instagram.com/supercarwithraul" target="_blank" rel="noopener" class="testimonial-handle">@supercarwithraul</a>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">He cerrado con el chico este que pasaste. <strong>Un evento en Barcelona 500€-650€</strong> en función del transporte y el contenido que salga</p>
+                </div>
+
+                <!-- Duplicados para scroll infinito -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://unavatar.io/instagram/victordlx_" alt="victordlx_" class="testimonial-avatar" loading="lazy">
+                        <div class="testimonial-info">
+                            <span class="testimonial-name">Víctor</span>
+                            <a href="https://instagram.com/victordlx_" target="_blank" rel="noopener" class="testimonial-handle">@victordlx_</a>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">Gracias x todo como siempre Abel!! Esta semanita cerrados <strong>2 presupuestos para eventos top</strong> y mejor pagados gracias a la clase del otro día. Vamosss a por más familia</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://unavatar.io/instagram/raul.contentmedia" alt="raul.contentmedia" class="testimonial-avatar" loading="lazy">
+                        <div class="testimonial-info">
+                            <span class="testimonial-name">Raúl</span>
+                            <a href="https://instagram.com/raul.contentmedia" target="_blank" rel="noopener" class="testimonial-handle">@raul.contentmedia</a>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">Por cierto, <strong>cliente cerrado por 4 vídeos y 10 fotos</strong> en Madrid en el complejo de apartamentos que estoy viviendo por <strong>500€</strong></p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://unavatar.io/instagram/supercarwithraul" alt="supercarwithraul" class="testimonial-avatar" loading="lazy">
+                        <div class="testimonial-info">
+                            <span class="testimonial-name">Raúl</span>
+                            <a href="https://instagram.com/supercarwithraul" target="_blank" rel="noopener" class="testimonial-handle">@supercarwithraul</a>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">He cerrado con el chico este que pasaste. <strong>Un evento en Barcelona 500€-650€</strong> en función del transporte y el contenido que salga</p>
+                </div>
             </div>
         </div>
     </section>
