@@ -1221,6 +1221,155 @@
         body.no-scroll {
             overflow: hidden;
         }
+
+        /* ===== LEAD FORM MODAL ===== */
+        .lead-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(6px);
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .lead-modal.active {
+            display: flex;
+        }
+        .lead-modal-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            max-width: 460px;
+            width: 100%;
+            padding: 36px 32px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .lead-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 24px;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .lead-modal-close:hover {
+            color: var(--text-main);
+        }
+        .lead-modal-title {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+        .lead-modal-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        .lead-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .lead-form label {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .lead-form input,
+        .lead-form select {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 14px;
+            color: var(--text-main);
+            font-size: 15px;
+            font-family: var(--font-body);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .lead-form input:focus,
+        .lead-form select:focus {
+            border-color: var(--accent-green);
+        }
+        .lead-form select option {
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+        .lead-form-submit {
+            background: var(--accent-green);
+            color: #000;
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 8px;
+        }
+        .lead-form-submit:hover {
+            background: var(--accent-green-hover);
+            transform: translateY(-2px);
+        }
+        .lead-success {
+            display: none;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .lead-success.active {
+            display: block;
+        }
+        .lead-success-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        .lead-success h3 {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+        .lead-success p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        .lead-success-cta {
+            display: inline-block;
+            background: var(--accent-green);
+            color: #000;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background 0.3s, transform 0.2s;
+            text-decoration: none;
+            width: 100%;
+        }
+        .lead-success-cta:hover {
+            background: var(--accent-green-hover);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -1231,7 +1380,7 @@
     <!-- ===== HEADER ===== -->
     <header class="header" id="header">
         <a href="#" class="header-logo">Detrás de <span>Cámara</span></a>
-        <a href="#oferta" class="header-cta">UNIRME A LA COMUNIDAD</a>
+        <a href="#" class="header-cta" onclick="event.preventDefault();openLeadModal();">UNIRME A LA COMUNIDAD</a>
     </header>
 
     <!-- ===== HERO ===== -->
@@ -1260,7 +1409,7 @@
             <p class="hero-price">Webinar gratuito el <strong>22 de marzo</strong> con @abelcasaldiaz</p>
             <div class="hero-price-value" style="font-size:clamp(28px,5vw,48px);">22 de marzo</div>
 
-            <a href="#oferta" class="hero-cta">ENTRAR A LA COMUNIDAD</a>
+            <a href="#" class="hero-cta" onclick="event.preventDefault();openLeadModal();">ENTRAR A LA COMUNIDAD</a>
 
             <p class="hero-disclaimer">Entra al grupo de WhatsApp, accede al webinar gratuito con Abel y descubre cómo vivir del filmmaking.</p>
 
@@ -1284,7 +1433,7 @@
                 <!-- Testimonial 1 -->
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="https://unavatar.io/instagram/victordlx_" alt="victordlx_" class="testimonial-avatar" loading="lazy">
+                        <img src="perfil testimonios/victor.jpg" alt="victordlx_" class="testimonial-avatar" loading="lazy">
                         <div class="testimonial-info">
                             <span class="testimonial-name">Víctor</span>
                             <a href="https://instagram.com/victordlx_" target="_blank" rel="noopener" class="testimonial-handle">@victordlx_</a>
@@ -1296,19 +1445,7 @@
                 <!-- Testimonial 2 -->
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="https://unavatar.io/instagram/raul.contentmedia" alt="raul.contentmedia" class="testimonial-avatar" loading="lazy">
-                        <div class="testimonial-info">
-                            <span class="testimonial-name">Raúl</span>
-                            <a href="https://instagram.com/raul.contentmedia" target="_blank" rel="noopener" class="testimonial-handle">@raul.contentmedia</a>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">Por cierto, <strong>cliente cerrado por 4 vídeos y 10 fotos</strong> en Madrid en el complejo de apartamentos que estoy viviendo por <strong>500€</strong></p>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <img src="https://unavatar.io/instagram/supercarwithraul" alt="supercarwithraul" class="testimonial-avatar" loading="lazy">
+                        <img src="perfil testimonios/supercarwithraul.jpg" alt="supercarwithraul" class="testimonial-avatar" loading="lazy">
                         <div class="testimonial-info">
                             <span class="testimonial-name">Raúl</span>
                             <a href="https://instagram.com/supercarwithraul" target="_blank" rel="noopener" class="testimonial-handle">@supercarwithraul</a>
@@ -1317,10 +1454,46 @@
                     <p class="testimonial-text">He cerrado con el chico este que pasaste. <strong>Un evento en Barcelona 500€-650€</strong> en función del transporte y el contenido que salga</p>
                 </div>
 
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://unavatar.io/instagram/carlosmarinph" alt="carlosmarinph" class="testimonial-avatar" loading="lazy">
+                        <div class="testimonial-info">
+                            <span class="testimonial-name">Carlos</span>
+                            <a href="https://instagram.com/carlosmarinph" target="_blank" rel="noopener" class="testimonial-handle">@carlosmarinph</a>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">Te juro que sí, me atrevería a decir que <strong>el mismo mes de esa clase, amorticé el curso</strong></p>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://unavatar.io/instagram/bossjoshoots" alt="bossjoshoots" class="testimonial-avatar" loading="lazy">
+                        <div class="testimonial-info">
+                            <span class="testimonial-name">Josh</span>
+                            <a href="https://instagram.com/bossjoshoots" target="_blank" rel="noopener" class="testimonial-handle">@bossjoshoots</a>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">Me acabo de cerrar 1 campus @Abel Casal Diaz por <strong>300€ con la escalera de valor</strong></p>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="perfil testimonios/raul.contentmedia.jpg" alt="raul.contentmedia" class="testimonial-avatar" loading="lazy">
+                        <div class="testimonial-info">
+                            <span class="testimonial-name">Raúl</span>
+                            <a href="https://instagram.com/raul.contentmedia" target="_blank" rel="noopener" class="testimonial-handle">@raul.contentmedia</a>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">Al final <strong>acepté los 400€</strong>, pero solo por un</p>
+                </div>
+
                 <!-- Duplicados para scroll infinito -->
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="https://unavatar.io/instagram/victordlx_" alt="victordlx_" class="testimonial-avatar" loading="lazy">
+                        <img src="perfil testimonios/victor.jpg" alt="victordlx_" class="testimonial-avatar" loading="lazy">
                         <div class="testimonial-info">
                             <span class="testimonial-name">Víctor</span>
                             <a href="https://instagram.com/victordlx_" target="_blank" rel="noopener" class="testimonial-handle">@victordlx_</a>
@@ -1331,18 +1504,7 @@
 
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="https://unavatar.io/instagram/raul.contentmedia" alt="raul.contentmedia" class="testimonial-avatar" loading="lazy">
-                        <div class="testimonial-info">
-                            <span class="testimonial-name">Raúl</span>
-                            <a href="https://instagram.com/raul.contentmedia" target="_blank" rel="noopener" class="testimonial-handle">@raul.contentmedia</a>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">Por cierto, <strong>cliente cerrado por 4 vídeos y 10 fotos</strong> en Madrid en el complejo de apartamentos que estoy viviendo por <strong>500€</strong></p>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <img src="https://unavatar.io/instagram/supercarwithraul" alt="supercarwithraul" class="testimonial-avatar" loading="lazy">
+                        <img src="perfil testimonios/supercarwithraul.jpg" alt="supercarwithraul" class="testimonial-avatar" loading="lazy">
                         <div class="testimonial-info">
                             <span class="testimonial-name">Raúl</span>
                             <a href="https://instagram.com/supercarwithraul" target="_blank" rel="noopener" class="testimonial-handle">@supercarwithraul</a>
@@ -1350,6 +1512,40 @@
                     </div>
                     <p class="testimonial-text">He cerrado con el chico este que pasaste. <strong>Un evento en Barcelona 500€-650€</strong> en función del transporte y el contenido que salga</p>
                 </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://unavatar.io/instagram/carlosmarinph" alt="carlosmarinph" class="testimonial-avatar" loading="lazy">
+                        <div class="testimonial-info">
+                            <span class="testimonial-name">Carlos</span>
+                            <a href="https://instagram.com/carlosmarinph" target="_blank" rel="noopener" class="testimonial-handle">@carlosmarinph</a>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">Te juro que sí, me atrevería a decir que <strong>el mismo mes de esa clase, amorticé el curso</strong></p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://unavatar.io/instagram/bossjoshoots" alt="bossjoshoots" class="testimonial-avatar" loading="lazy">
+                        <div class="testimonial-info">
+                            <span class="testimonial-name">Josh</span>
+                            <a href="https://instagram.com/bossjoshoots" target="_blank" rel="noopener" class="testimonial-handle">@bossjoshoots</a>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">Me acabo de cerrar 1 campus @Abel Casal Diaz por <strong>300€ con la escalera de valor</strong></p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="perfil testimonios/raul.contentmedia.jpg" alt="raul.contentmedia" class="testimonial-avatar" loading="lazy">
+                        <div class="testimonial-info">
+                            <span class="testimonial-name">Raúl</span>
+                            <a href="https://instagram.com/raul.contentmedia" target="_blank" rel="noopener" class="testimonial-handle">@raul.contentmedia</a>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">Al final <strong>acepté los 400€</strong>, pero solo por un</p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -1491,7 +1687,7 @@
                         <li>Viaja por trabajo a Dubai, festivales y eventos exclusivos</li>
                     </ul>
 
-                    <a href="#oferta" class="bio-modal-cta" onclick="document.getElementById('bioModal').classList.remove('active');document.body.classList.remove('no-scroll');">ENTRAR A LA COMUNIDAD</a>
+                    <a href="#" class="bio-modal-cta" onclick="event.preventDefault();document.getElementById('bioModal').classList.remove('active');openLeadModal();">ENTRAR A LA COMUNIDAD</a>
                 </div>
             </div>
         </div>
@@ -1547,7 +1743,7 @@
                 <p class="offer-price-old">Webinar gratuito</p>
                 <div class="offer-price-new" style="font-size:clamp(28px,5vw,48px);">22 de marzo</div>
                 <p class="offer-price-desc">Entra a la comunidad de WhatsApp y accede al webinar en directo con Abel. Sin compromiso, 100% gratuito.</p>
-                <a href="#" class="offer-cta">ENTRAR A LA COMUNIDAD</a>
+                <a href="#" class="offer-cta" onclick="event.preventDefault();openLeadModal();">ENTRAR A LA COMUNIDAD</a>
                 <div class="offer-secure">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     Grupo de WhatsApp &middot; Plazas limitadas
@@ -1653,6 +1849,57 @@
             </div>
         </div>
     </section>
+
+    <!-- ===== LEAD FORM MODAL ===== -->
+    <div class="lead-modal" id="leadModal">
+        <div class="lead-modal-box">
+            <button class="lead-modal-close" id="leadClose">&times;</button>
+
+            <!-- Form -->
+            <div id="leadFormWrap">
+                <h3 class="lead-modal-title">Únete a la comunidad</h3>
+                <p class="lead-modal-subtitle">Rellena tus datos para acceder al grupo y al webinar gratuito.</p>
+                <form class="lead-form" id="leadForm">
+                    <label>
+                        Nombre
+                        <input type="text" name="nombre" placeholder="Tu nombre" required>
+                    </label>
+                    <label>
+                        Correo electrónico
+                        <input type="email" name="correo" placeholder="tu@email.com" required>
+                    </label>
+                    <label>
+                        Número de teléfono
+                        <input type="tel" name="telefono" placeholder="+34 600 000 000" required>
+                    </label>
+                    <label>
+                        Puesto de trabajo actual
+                        <input type="text" name="puesto" placeholder="Ej: Estudiante, Freelance, Camarero..." required>
+                    </label>
+                    <label>
+                        Dinero mensual aproximado
+                        <select name="dinero" required>
+                            <option value="" disabled selected>Selecciona un rango</option>
+                            <option value="0-500">0 € – 500 €</option>
+                            <option value="500-1000">500 € – 1.000 €</option>
+                            <option value="1000-2000">1.000 € – 2.000 €</option>
+                            <option value="2000-3000">2.000 € – 3.000 €</option>
+                            <option value="3000+">Más de 3.000 €</option>
+                        </select>
+                    </label>
+                    <button type="submit" class="lead-form-submit">ENVIAR</button>
+                </form>
+            </div>
+
+            <!-- Success -->
+            <div class="lead-success" id="leadSuccess">
+                <div class="lead-success-icon">✅</div>
+                <h3>¡Datos enviados!</h3>
+                <p>Pulsa el botón para unirte a la comunidad de WhatsApp.</p>
+                <a href="#" class="lead-success-cta" id="leadFinalCta" target="_blank" rel="noopener">UNIRME A LA COMUNIDAD</a>
+            </div>
+        </div>
+    </div>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
@@ -1762,6 +2009,36 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Lead form modal
+        const leadModal = document.getElementById('leadModal');
+        const leadClose = document.getElementById('leadClose');
+        const leadForm = document.getElementById('leadForm');
+        const leadFormWrap = document.getElementById('leadFormWrap');
+        const leadSuccess = document.getElementById('leadSuccess');
+
+        function openLeadModal() {
+            leadFormWrap.style.display = 'block';
+            leadSuccess.classList.remove('active');
+            leadModal.classList.add('active');
+            document.body.classList.add('no-scroll');
+        }
+
+        function closeLeadModal() {
+            leadModal.classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        }
+
+        leadClose.addEventListener('click', closeLeadModal);
+        leadModal.addEventListener('click', (e) => {
+            if (e.target === leadModal) closeLeadModal();
+        });
+
+        leadForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            leadFormWrap.style.display = 'none';
+            leadSuccess.classList.add('active');
+        });
 
         // Before / After slider
         (() => {
