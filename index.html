@@ -22,6 +22,11 @@
             --font-main: 'Inter', sans-serif;
             --font-serif: 'Inter Tight', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
+            --accent-gold: #D4A843;
+        }
+
+        .text-gold {
+            color: var(--accent-gold);
         }
 
         *, *::before, *::after {
@@ -1394,20 +1399,18 @@
 
             <h1 class="hero-title">
                 <span class="light">Aprende a</span> <span class="bold gradient">vivir del filmmaking</span><br>
-                <span class="light">de forma</span> <span class="bold">independiente</span>
+                <span class="light">de forma</span> <span class="bold text-gold">independiente</span>
             </h1>
 
-            <p class="hero-subtitle">INCLUSO SI PARTES DE CERO / SIN EXPERIENCIA PREVIA</p>
+            <p class="hero-subtitle">INCLUSO SI PARTES DE CERO / <span class="text-gold">SIN EXPERIENCIA PREVIA</span></p>
 
-            <!-- Video embed placeholder -->
+            <!-- VSL Video -->
             <div class="hero-video-wrapper">
-                <div class="hero-video-placeholder" id="heroVideoPlay">
-                    &#9654;
-                </div>
+                <iframe src="https://iframe.mediadelivery.net/embed/615009/1801e98c-e76d-4026-a779-f5309f3c3bcc?autoplay=true&loop=false&muted=true&preload=true&responsive=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe>
             </div>
 
-            <p class="hero-price">Webinar gratuito el <strong>26 de marzo</strong> con @abelcasaldiaz</p>
-            <div class="hero-price-value" style="font-size:clamp(28px,5vw,48px);">26 de marzo</div>
+            <p class="hero-price">Webinar gratuito el <strong class="text-gold">26 de marzo</strong> con @abelcasaldiaz</p>
+            <div class="hero-price-value text-gold" style="font-size:clamp(28px,5vw,48px);">26 de marzo</div>
 
             <a href="#" class="hero-cta" onclick="event.preventDefault();openLeadModal();">ENTRAR A LA COMUNIDAD</a>
 
@@ -1417,7 +1420,7 @@
                 <p>
                     La demanda de contenido visual crece cada año. Empresas, marcas y negocios locales necesitan filmmakers profesionales.
                     <strong>El 87% de las empresas utilizan vídeo como herramienta de marketing.</strong>
-                    El problema nunca fue la falta de oportunidades. El problema es que <strong>nadie te enseña a cobrar por tu trabajo</strong>.
+                    El problema nunca fue la falta de oportunidades. El problema es que <strong class="text-gold">nadie te enseña a cobrar por tu trabajo</strong>.
                 </p>
             </div>
         </div>
@@ -1426,7 +1429,7 @@
     <!-- ===== TESTIMONIOS ===== -->
     <section class="testimonials fade-in">
         <p class="section-label">La comunidad habla</p>
-        <h2 class="section-title">Resultados reales de alumnos reales</h2>
+        <h2 class="section-title"><span class="text-gold">Resultados reales</span> de alumnos reales</h2>
 
         <div class="testimonials-track-wrapper">
             <div class="testimonials-track" id="testimonialsTrack">
@@ -1471,7 +1474,7 @@
                     <div class="testimonial-header">
                         <img src="https://unavatar.io/instagram/bossjoshoots" alt="bossjoshoots" class="testimonial-avatar" loading="lazy">
                         <div class="testimonial-info">
-                            <span class="testimonial-name">Josh</span>
+                            <span class="testimonial-name">Miguel</span>
                             <a href="https://instagram.com/bossjoshoots" target="_blank" rel="noopener" class="testimonial-handle">@bossjoshoots</a>
                         </div>
                     </div>
@@ -1528,7 +1531,7 @@
                     <div class="testimonial-header">
                         <img src="https://unavatar.io/instagram/bossjoshoots" alt="bossjoshoots" class="testimonial-avatar" loading="lazy">
                         <div class="testimonial-info">
-                            <span class="testimonial-name">Josh</span>
+                            <span class="testimonial-name">Miguel</span>
                             <a href="https://instagram.com/bossjoshoots" target="_blank" rel="noopener" class="testimonial-handle">@bossjoshoots</a>
                         </div>
                     </div>
@@ -1553,7 +1556,7 @@
     <!-- ===== EL PROCESO ===== -->
     <section class="process fade-in">
         <p class="section-label">El Método</p>
-        <h2 class="section-title">De hobby a profesión en 4 pilares</h2>
+        <h2 class="section-title">De hobby a <span class="text-gold">profesión</span> en 4 pilares</h2>
         <p class="section-subtitle">No es un curso técnico más. Es un sistema completo para que montes tu negocio de filmmaking y vivas de ello.</p>
 
         <div class="process-grid">
@@ -1594,12 +1597,12 @@
     <!-- ===== BEFORE / AFTER ===== -->
     <section class="ba-section fade-in">
         <p class="section-label">Evolución</p>
-        <h2 class="section-title">Antes y después</h2>
+        <h2 class="section-title"><span class="text-gold">Antes y después</span></h2>
         <p class="section-subtitle">Desliza para ver la transformación. Esto es lo que cambia cuando dominas la técnica y el negocio.</p>
 
         <div class="ba-slider" id="baSlider">
-            <img src="SILVESTRE/DSC00354.jpg" alt="Antes" class="ba-before">
-            <img src="SILVESTRE/DSC01388-2.jpg" alt="Después" class="ba-after">
+            <img src="antes y dspues/antes.jpg" alt="Antes" class="ba-before">
+            <img src="antes y dspues/despues.jpg" alt="Después" class="ba-after">
             <span class="ba-label ba-label-before">Antes</span>
             <span class="ba-label ba-label-after">Después</span>
             <div class="ba-divider" id="baDivider"></div>
@@ -1628,35 +1631,28 @@
                 <div class="bio-modal-images">
                     <div class="bio-img">
                         <img src="8 fotos/Kickoff meeting Abel.jpeg" alt="Abel en kickoff meeting">
-                        <span class="bio-img-label">kickoff meeting</span>
+
                     </div>
                     <div class="bio-img">
                         <img src="8 fotos/WhatsApp Image 2026-03-03 at 19.29.03.jpeg" alt="Abel">
-                        <span class="bio-img-label">abel</span>
                     </div>
                     <div class="bio-img">
                         <img src="8 fotos/WhatsApp Image 2026-03-03 at 19.29.13.jpeg" alt="Abel">
-                        <span class="bio-img-label">en acción</span>
                     </div>
                     <div class="bio-img">
                         <img src="8 fotos/WhatsApp Image 2026-03-03 at 19.56.58.jpeg" alt="Abel">
-                        <span class="bio-img-label">detrás de cámaras</span>
                     </div>
                     <div class="bio-img">
                         <img src="8 fotos/WhatsApp Image 2026-03-03 at 19.57.00.jpeg" alt="Abel">
-                        <span class="bio-img-label">grabando</span>
                     </div>
                     <div class="bio-img">
                         <img src="8 fotos/WhatsApp Image 2026-03-03 at 19.57.02.jpeg" alt="Abel">
-                        <span class="bio-img-label">el proceso</span>
                     </div>
                     <div class="bio-img">
                         <img src="8 fotos/WhatsApp Image 202jj6-03-03 at 19.58.14.jpeg" alt="Abel">
-                        <span class="bio-img-label">el resultado</span>
                     </div>
                     <div class="bio-img">
                         <img src="WhatsApp Image 2026-03-03 at 19.57.00.jpeg" alt="Abel">
-                        <span class="bio-img-label">viviendo de esto</span>
                     </div>
                 </div>
 
@@ -1665,7 +1661,7 @@
                     <h3>Abel Casal Diaz</h3>
                     <p class="bio-large">23 años. Filmmaker profesional. Todo lo que tengo lo he construido con una cámara.</p>
 
-                    <p>No vengo de dinero. Mi padre es médico y gana 3.000 euros. Todo lo que ves en mi Instagram — los Lamborghinis, Dubai, los restaurantes de lujo — no son míos. Soy yo quien los graba. Y me pagan por ello.</p>
+                    <p>No vengo de dinero. Mi padre es médico y gana 3.000 euros. Todo lo que ves en mi Instagram — los Lamborghinis, viajar por el mundo, los restaurantes de lujo — no son míos. Soy yo quien los graba. Y me pagan por ello.</p>
 
                     <p>Más aún: no solo no pago por esas experiencias, sino que además me pagan a mí.</p>
 
@@ -1684,7 +1680,7 @@
                         <li>Clientes de alto valor en eventos, automoción y marcas de lujo</li>
                         <li>Alumnos que han recuperado la inversión en 4 semanas</li>
                         <li>Ha monetizado su marca personal desde cero, sin contactos ni agencia</li>
-                        <li>Viaja por trabajo a Dubai, festivales y eventos exclusivos</li>
+                        <li>Viaja por trabajo por el mundo, festivales y eventos exclusivos</li>
                     </ul>
 
                     <a href="#" class="bio-modal-cta" onclick="event.preventDefault();document.getElementById('bioModal').classList.remove('active');openLeadModal();">ENTRAR A LA COMUNIDAD</a>
@@ -1741,7 +1737,7 @@
             <!-- Right -->
             <div class="offer-right">
                 <p class="offer-price-old">Webinar gratuito</p>
-                <div class="offer-price-new" style="font-size:clamp(28px,5vw,48px);">26 de marzo</div>
+                <div class="offer-price-new text-gold" style="font-size:clamp(28px,5vw,48px);">26 de marzo</div>
                 <p class="offer-price-desc">Entra a la comunidad de WhatsApp y accede al webinar en directo con Abel. Sin compromiso, 100% gratuito.</p>
                 <a href="#" class="offer-cta" onclick="event.preventDefault();openLeadModal();">ENTRAR A LA COMUNIDAD</a>
                 <div class="offer-secure">
@@ -1784,7 +1780,7 @@
             </button>
             <div class="faq-answer">
                 <div class="faq-answer-inner">
-                    Sí. Entrar al grupo de WhatsApp y asistir al webinar del 26 de marzo con Abel es 100% gratuito. Es la mejor forma de conocer el método antes de tomar cualquier decisión.
+                    Sí. Entrar al grupo de WhatsApp y asistir al webinar del <span class="text-gold">26 de marzo</span> con Abel es 100% gratuito. Es la mejor forma de conocer el método antes de tomar cualquier decisión.
                 </div>
             </div>
         </div>
